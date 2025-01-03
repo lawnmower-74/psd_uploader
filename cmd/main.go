@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 
 	"github.com/lawnmower-74/psd_uploader/db"
 	"github.com/lawnmower-74/psd_uploader/model"
@@ -10,6 +10,6 @@ import (
 func main()  {
 	db := db.ConnectDB()
 	if err := db.AutoMigrate(&model.PSDFile{}); err != nil {
-		fmt.Errorf("failed to migrate database: %w", err)
+		log.Fatalf("failed to migrate database: %v", err)
 	}
 }
